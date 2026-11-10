@@ -1,0 +1,6 @@
+---
+import Base from '../layouts/Base.astro';
+import {papers} from '../lib/data.mjs';
+const base=import.meta.env.BASE_URL;
+---
+<Base title="Le Comptoir"><div class="container"><section class="page-hero"><span class="eyebrow">L'ENTRÉE DU JEANBAR</span><h1 class="page-title">Le Comptoir.</h1><p class="page-lead">L’espace des intuitions, des digressions et des questions qui font naître les articles. Ici on peut commencer sans connaître la réponse.</p></section><div class="card-grid">{papers.map(p=><a class="card" href={`${base}jeanpapelars/${p.slug}/`}><span class="num">QUESTION / {p.num}</span><h3>{p.question}</h3><p>Explorer la réflexion et les pistes de vérification associées.</p><div class="card-foot"><span class="pill graypill">Ouvrir la discussion</span><span class="arrow">↗</span></div></a>)}</div><p class="notice" style="margin-top:25px">Dans ce MVP statique, « discussion » renvoie au texte associé. Les commentaires publics nécessiteraient une solution complémentaire et une politique de modération.</p></div></Base>

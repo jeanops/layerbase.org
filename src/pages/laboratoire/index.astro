@@ -1,0 +1,5 @@
+---
+import Base from '../../layouts/Base.astro';
+import {experiments} from '../../lib/data.mjs';
+---
+<Base title="Laboratoire"><div class="container"><section class="page-hero"><span class="eyebrow">EXPÉRIMENTATIONS / FALSIFIABILITÉ</span><h1 class="page-title">Le Laboratoire.</h1><p class="page-lead">Les hypothèses sont accueillies. Les protocoles sont documentés. Les résultats ne sont jamais inventés.</p></section>{experiments.map(e=><section class="lab-item"><span class="eyebrow">{e.id} / {e.status}</span><h3>{e.title}</h3><p>{e.desc}</p><h4>Étapes proposées</h4><ol>{e.steps.map(s=><li>{s}</li>)}</ol><div class="notice">{e.disclaimer}</div></section>)}</div></Base>

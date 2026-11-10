@@ -1,0 +1,12 @@
+---
+import '../styles/global.css';
+const {title='JEANBAR COSMIQUE', description='Les idées sont libres. Les preuves ont leurs exigences.'} = Astro.props;
+const root = import.meta.env.BASE_URL.replace(/\/$/,'');
+const url = (path='')=>`${root}/${path.replace(/^\//,'')}`;
+---
+<!doctype html><html lang="fr"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content={description}/><meta name="theme-color" content="#0b1120"/><title>{title} · JEANBAR</title><link rel="icon" href={url('favicon.svg')}/></head><body>
+<div class="stars" aria-hidden="true"></div>
+<header class="site-header"><div class="container header-inner"><a class="logo" href={url()} aria-label="JEANBAR Accueil"><span class="logo-mark">✳</span><span>JEAN<span class="gold">BAR</span><small>COSMIQUE</small></span></a><nav aria-label="Navigation principale"><a href={url('comptoir/')}>Comptoir</a><a href={url('jeanpapelars/')}>Jeanpapelars</a><a href={url('laboratoire/')}>Laboratoire</a><a href={url('constellations/')}>Constellations</a><a href={url('manifeste/')}>Manifeste</a></nav><a class="nav-cta" href={url('jeanpapelars/')}>Explorer <span>↗</span></a></div></header>
+<main><slot/></main>
+<footer class="footer"><div class="container footer-grid"><div><a class="logo" href={url()}><span class="logo-mark">✳</span><span>JEAN<span class="gold">BAR</span><small>COSMIQUE</small></span></a><p>Un espace pour penser, expérimenter et parfois changer d’avis.</p></div><div><span class="eyebrow">NAVIGATION</span><a href={url('comptoir/')}>Le Comptoir</a><a href={url('jeanpapelars/')}>Les Jeanpapelars</a><a href={url('laboratoire/')}>Le Laboratoire</a></div><div><span class="eyebrow">ENGAGEMENT</span><p>Hypothèses ≠ résultats.<br/>Les incertitudes restent visibles.<br/>Les sources ont leur place.</p></div></div><div class="container copyright">© 2026 JEANBAR COSMIQUE <span>V0.1 · FAIT POUR RESTER OUVERT</span></div></footer>
+</body></html>
